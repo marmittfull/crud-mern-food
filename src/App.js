@@ -44,7 +44,7 @@ const App = () => {
       })
   }
   const deleteFood = (id) => {
-    Axios.delete(`https://crud-mern-food.herokuapp.com/${id}`).then(() => {
+    Axios.delete(`https://crud-mern-food.herokuapp.com/delete/${id}`).then(() => {
       listFoods()
     })
   }
