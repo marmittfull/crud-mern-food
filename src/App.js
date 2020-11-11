@@ -16,13 +16,13 @@ const App = () => {
   }, [])
 
   const listFoods = () => {
-    Axios.get("http://localhost:3001/read").then((response) => {
+    Axios.get("https://crud-mern-food.herokuapp.com/read").then((response) => {
       setFoodList(response.data)
     })
   }
 
   const addToList = () => {
-    Axios.post("http://localhost:3001/insert", { foodName: foodName, price: price, img: img ? img : "https://dummyimage.com/300.png/09f/fff" }).then(() => {
+    Axios.post("https://crud-mern-food.herokuapp.com/insert", { foodName: foodName, price: price, img: img ? img : "https://dummyimage.com/300.png/09f/fff" }).then(() => {
       listFoods()
       setPrice(0)
       setFoodName('')
@@ -30,7 +30,7 @@ const App = () => {
     })
   }
   const updateFood = async (item) => {
-    Axios.put("http://localhost:3001/update",
+    Axios.put("https://crud-mern-food.herokuapp.com/update",
       {
         id: item._id, newFoodName: newFoodName ? newFoodName : item.foodName,
         newPrice: newPrice ? newPrice : item.price,
@@ -44,7 +44,7 @@ const App = () => {
       })
   }
   const deleteFood = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
+    Axios.delete(`https://crud-mern-food.herokuapp.com/${id}`).then(() => {
       listFoods()
     })
   }
